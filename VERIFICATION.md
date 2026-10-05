@@ -19,5 +19,6 @@ reports/fresh-run` to reproduce without regenerating fixtures.
 
 Earlier Windows TEMP and overly broad AST compile-check failures were corrected;
 failed raw receipts remain locally. Only the final passing run is cited here.
-Hosted CI and CodeQL results are pending publication. Finite checks and SAST do not
+Published on GitHub; hosted Linux/Windows CI and CodeQL are queued.
+All five frozen artifact byte/SHA256 identities match the published Git blobs. Finite checks and SAST do not
 establish universal browser conformance, production safety or independent audit.

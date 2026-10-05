@@ -18,10 +18,12 @@ text. No worker code accepted, no paid fallback. Raw evidence retained locally.
 
 Limits: synthetic assumptions, excluded browser policies, no delivery/authentication
 assurance, no hard resource proof. Optional scanner versions pinned; complete PyPI
-hash metadata unavailable. Publication and hosted checks pending.
+hash metadata unavailable. Published at https://github.com/jfrance167/cookie-scoping-policy-lab.
+Hosted Linux/Windows checks and CodeQL are queued.
 
-Usage guard: Jake explicitly resumed publication; current allowance verified at
-20% used / 80% remaining. Stop below 70% or when unverifiable.
-Publication scan: no credential/private-path patterns in intended public files;
-all final verification source hashes unchanged. Next: isolated commit and push,
-GitHub security settings and hosted checks, knowledge milestone.
+Usage guard: resumed by Jake; latest verified allowance 22% used / 78% remaining.
+Stop below 70% or when unverifiable. Publication scan found no credential/private
+path patterns; published five frozen artifact identities verified. Secret scanning,
+push protection, Dependabot alerts/security updates enabled; workflow defaults read
+only, no Actions PR approval. Secret alert read access is unavailable with the current
+credential. Next: hosted checks, required-check protection assessment and milestone.
