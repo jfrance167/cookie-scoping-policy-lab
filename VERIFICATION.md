@@ -19,6 +19,12 @@ reports/fresh-run` to reproduce without regenerating fixtures.
 
 Earlier Windows TEMP and overly broad AST compile-check failures were corrected;
 failed raw receipts remain locally. Only the final passing run is cited here.
-Published on GitHub; hosted Linux/Windows CI and CodeQL are queued.
+Hosted results independently read back on 2026-10-05 at main commit
+`600e935ba0f7a13f052cbb109445c7979267f632`:
+[Tests and Bandit](https://github.com/jfrance167/cookie-scoping-policy-lab/actions/runs/37368509577)
+succeeded on Ubuntu and Windows; [CodeQL](https://github.com/jfrance167/cookie-scoping-policy-lab/actions/runs/37368509644)
+succeeded. Open CodeQL and Dependabot alert counts were both zero at readback.
+Secret-scanning alert inspection remains unavailable with the existing credential;
+workflow success alone does not prove absence of all security alerts.
 All five frozen artifact byte/SHA256 identities match the published Git blobs. Finite checks and SAST do not
 establish universal browser conformance, production safety or independent audit.
