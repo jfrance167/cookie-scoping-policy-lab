@@ -1,0 +1,1576 @@
+{
+  "version": 1,
+  "profile": "stored-cookie-scope/1",
+  "results": [
+    {
+      "id": "baseline",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "domain-subdomain",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "shop.example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "domain-lookalike",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "badexample.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "FAIL",
+          "reason": "DOMAIN_MISMATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "domain-other",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "other.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "FAIL",
+          "reason": "DOMAIN_MISMATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "hostonly-equal",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": true,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "hostonly-child",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": true,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "shop.example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "FAIL",
+          "reason": "DOMAIN_MISMATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "nested-domain",
+      "cookie": {
+        "domain": "shop.example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "a.shop.example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "nested-lookalike",
+      "cookie": {
+        "domain": "shop.example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "badshop.example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "FAIL",
+          "reason": "DOMAIN_MISMATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "domain-null",
+      "cookie": {
+        "domain": null,
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "UNKNOWN",
+          "reason": "DOMAIN_CONTEXT"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "DOMAIN_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "host-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": null,
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "UNKNOWN",
+          "reason": "DOMAIN_CONTEXT"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "DOMAIN_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "hostonly-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": null,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "UNKNOWN",
+          "reason": "DOMAIN_CONTEXT"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "DOMAIN_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "host-uppercase",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "Example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "UNKNOWN",
+          "reason": "DOMAIN_CONTEXT"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "DOMAIN_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "domain-leading-dot",
+      "cookie": {
+        "domain": ".example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "UNKNOWN",
+          "reason": "DOMAIN_CONTEXT"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "DOMAIN_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "path-equal",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "path-lookalike",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/apple",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "FAIL",
+          "reason": "PATH_MISMATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "path-root",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "path-trailing-ok",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app/",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "path-trailing-short",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app/",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "FAIL",
+          "reason": "PATH_MISMATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "path-case",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/APP/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "FAIL",
+          "reason": "PATH_MISMATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "path-double-slash",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app//",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app//x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "path-percent",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/%78",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "UNKNOWN",
+          "reason": "PATH_CONTEXT"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "PATH_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "path-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": null,
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "UNKNOWN",
+          "reason": "PATH_CONTEXT"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "PATH_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "transport-plain",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": false,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "FAIL",
+          "reason": "TRANSPORT_MISMATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "secure-false",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": false,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": false,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "transport-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": null,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "UNKNOWN",
+          "reason": "TRANSPORT_CONTEXT"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "TRANSPORT_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "secure-false-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": false,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": null,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "secure-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": null,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "UNKNOWN",
+          "reason": "TRANSPORT_CONTEXT"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "TRANSPORT_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "expiry-before",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 99
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "FAIL",
+          "reason": "EXPIRY_EXPIRED"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "expiry-equal",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 100
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "FAIL",
+          "reason": "EXPIRY_EXPIRED"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "expiry-after",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 102
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "session",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "session",
+        "expires_at": null
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": null
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [],
+      "profile_status": "SUPPORTED",
+      "scope_decision": "ELIGIBLE_UNDER_ASSUMPTIONS"
+    },
+    {
+      "id": "clock-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": null
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "UNKNOWN",
+          "reason": "EXPIRY_CONTEXT"
+        }
+      },
+      "unsupported_contexts": [
+        "EXPIRY_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "expiry-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": null
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "UNKNOWN",
+          "reason": "EXPIRY_CONTEXT"
+        }
+      },
+      "unsupported_contexts": [
+        "EXPIRY_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "lifetime-unknown",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "unknown",
+        "expires_at": null
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "UNKNOWN",
+          "reason": "EXPIRY_CONTEXT"
+        }
+      },
+      "unsupported_contexts": [
+        "EXPIRY_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "fail-and-unknown",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "other.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": null
+      },
+      "gates": {
+        "domain": {
+          "state": "FAIL",
+          "reason": "DOMAIN_MISMATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "UNKNOWN",
+          "reason": "EXPIRY_CONTEXT"
+        }
+      },
+      "unsupported_contexts": [
+        "EXPIRY_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "samesite-excluded",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "FEATURE:samesite"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "feature-and-fail",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "other.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "FAIL",
+          "reason": "DOMAIN_MISMATCH"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "FEATURE:partitioned"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "NOT_ELIGIBLE"
+    },
+    {
+      "id": "host-ip",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "127.0.0.1",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "UNKNOWN",
+          "reason": "DOMAIN_CONTEXT"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "DOMAIN_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "domain-idna",
+      "cookie": {
+        "domain": "xn--demo.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "UNKNOWN",
+          "reason": "DOMAIN_CONTEXT"
+        },
+        "path": {
+          "state": "PASS",
+          "reason": "PATH_MATCH"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "DOMAIN_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    },
+    {
+      "id": "path-dot-segment",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/../x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "gates": {
+        "domain": {
+          "state": "PASS",
+          "reason": "DOMAIN_MATCH"
+        },
+        "path": {
+          "state": "UNKNOWN",
+          "reason": "PATH_CONTEXT"
+        },
+        "transport": {
+          "state": "PASS",
+          "reason": "TRANSPORT_MATCH"
+        },
+        "expiry": {
+          "state": "PASS",
+          "reason": "EXPIRY_LIVE"
+        }
+      },
+      "unsupported_contexts": [
+        "PATH_CONTEXT"
+      ],
+      "profile_status": "UNSUPPORTED",
+      "scope_decision": "UNRESOLVED"
+    }
+  ],
+  "statistics": {
+    "SUPPORTED:ELIGIBLE_UNDER_ASSUMPTIONS": 12,
+    "SUPPORTED:NOT_ELIGIBLE": 10,
+    "SUPPORTED:UNRESOLVED": 0,
+    "UNSUPPORTED:ELIGIBLE_UNDER_ASSUMPTIONS": 0,
+    "UNSUPPORTED:NOT_ELIGIBLE": 2,
+    "UNSUPPORTED:UNRESOLVED": 16
+  },
+  "assumptions": [
+    "Synthetic declarations only; stored admission and retention are assumed.",
+    "Supported hosts and paths are canonical supplied context, not parsed URLs.",
+    "Secure transport and whole-second time are supplied, never measured.",
+    "Browser delivery, storage acceptance, session lifetime and authentication are unverified."
+  ]
+}

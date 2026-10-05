@@ -1,0 +1,729 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "baseline",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "domain-subdomain",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "shop.example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "domain-lookalike",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "badexample.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "domain-other",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "other.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "hostonly-equal",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": true,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "hostonly-child",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": true,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "shop.example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "nested-domain",
+      "cookie": {
+        "domain": "shop.example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "a.shop.example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "nested-lookalike",
+      "cookie": {
+        "domain": "shop.example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "badshop.example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "domain-null",
+      "cookie": {
+        "domain": null,
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "host-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": null,
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "hostonly-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": null,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "host-uppercase",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "Example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "domain-leading-dot",
+      "cookie": {
+        "domain": ".example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "path-equal",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "path-lookalike",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/apple",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "path-root",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "path-trailing-ok",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app/",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "path-trailing-short",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app/",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "path-case",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/APP/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "path-double-slash",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app//",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app//x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "path-percent",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/%78",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "path-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": null,
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "transport-plain",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": false,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "secure-false",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": false,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": false,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "transport-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": null,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "secure-false-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": false,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": null,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "secure-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": null,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "expiry-before",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 99
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "expiry-equal",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 100
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "expiry-after",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 102
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "session",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "session",
+        "expires_at": null
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": null
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "clock-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": null
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "expiry-null",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": null
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "lifetime-unknown",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "unknown",
+        "expires_at": null
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "fail-and-unknown",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "other.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": null
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "samesite-excluded",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": [
+        "samesite"
+      ]
+    },
+    {
+      "id": "feature-and-fail",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "other.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": [
+        "partitioned"
+      ]
+    },
+    {
+      "id": "host-ip",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "127.0.0.1",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "domain-idna",
+      "cookie": {
+        "domain": "xn--demo.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    },
+    {
+      "id": "path-dot-segment",
+      "cookie": {
+        "domain": "example.test",
+        "host_only": false,
+        "path": "/app",
+        "secure": true,
+        "lifetime": "persistent",
+        "expires_at": 101
+      },
+      "request": {
+        "host": "example.test",
+        "path": "/app/../x",
+        "secure_transport": true,
+        "now": 100
+      },
+      "unsupported_features": []
+    }
+  ]
+}

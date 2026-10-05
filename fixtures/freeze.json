@@ -1,0 +1,22 @@
+{
+  "docs/CONTRACT.md": {
+    "bytes": 2858,
+    "sha256": "fb58ead774c8adcb4153d9ad51af28738362b138ffdceb8cc9a7751c162a9192"
+  },
+  "fixtures/cases.json": {
+    "bytes": 16545,
+    "sha256": "90fff025da7d353ed0ddcf6e6d49159186555c0516121ee1b340f8f80041b022"
+  },
+  "fixtures/expected.json": {
+    "bytes": 37016,
+    "sha256": "8fad16030cba0087584c2a0c80f0cc6e0e2d79a5df9da736be2218bac0854748"
+  },
+  "fixtures/expected.md": {
+    "bytes": 110376,
+    "sha256": "0c86707ec6e61979103b570767832922002e7c1128cb99dd6c11b40bd1c7e52f"
+  },
+  "fixtures/diagnostics.json": {
+    "bytes": 614,
+    "sha256": "00f031b2e9a73f3b2bb981d1d863b6c736a0125f017a391fa7eb8cc6a4a3247d"
+  }
+}

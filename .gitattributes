@@ -1,0 +1,4 @@
+* text=auto eol=lf
+fixtures/expected.json -text
+fixtures/expected.md -text
+fixtures/freeze.json -text

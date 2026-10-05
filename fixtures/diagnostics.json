@@ -1,0 +1,34 @@
+[
+  {
+    "raw": "{\"version\":1,\"version\":1,\"cases\":[]}",
+    "code": "DUPLICATE_KEY"
+  },
+  {
+    "raw": "{\"version\":1.0,\"cases\":[]}",
+    "code": "NONINTEGER_JSON"
+  },
+  {
+    "raw": "{\"version\":NaN,\"cases\":[]}",
+    "code": "NONINTEGER_JSON"
+  },
+  {
+    "raw": "{\"version\":10000000000,\"cases\":[]}",
+    "code": "INTEGER_TOKEN_BOUND"
+  },
+  {
+    "raw": "{}",
+    "code": "SCHEMA"
+  },
+  {
+    "raw": "{\"version\":true,\"cases\":[]}",
+    "code": "VERSION"
+  },
+  {
+    "raw": "{\"version\":1,\"cases\":[]}",
+    "code": "CASE_COUNT"
+  },
+  {
+    "raw": "[",
+    "code": "INVALID_JSON"
+  }
+]
