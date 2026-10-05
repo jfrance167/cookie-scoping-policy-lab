@@ -22,3 +22,7 @@ All three action references resolve to full commits (checkout v6, setup-python v
 CodeQL v4); least permissions and checkout credential persistence disabled.
 Optional scanner dependencies are exact-version pins; metadata transport failures
 prevented a complete hash lock. Hosted workflow and security results pending.
+
+Publication correction: quoted the pip command after GitHub rejected its YAML
+syntax; all three workflow/configuration YAML files now parse locally. Hosted
+checks are required to establish runtime compatibility.

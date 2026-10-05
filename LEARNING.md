@@ -29,3 +29,7 @@ subdomain result changes; then change only the supplied clock to exact expiry ti
 A capability check initially treated fixed re.compile as Python code compilation.
 The corrected AST check distinguishes attribute calls from builtin compile; the
 failed verifier receipt is preserved and excluded from passing claims.
+
+Hosted CI rejected an unquoted pip command containing a colon followed by space.
+Quoting the whole command fixes YAML parsing; local YAML syntax checks were added
+to the publication review. No application behavior changed.
